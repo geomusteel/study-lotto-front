@@ -1,6 +1,6 @@
+import React from 'react';
 import styled from "styled-components";
-import {FlexCenterDivision} from "../../common/div/FlexCenterDivision"
-
+import {FlexCenterDivision} from "../../../common/div/FlexCenterDivision"
 
 export const Wrapper = styled(FlexCenterDivision)<{ $isSelected: boolean }>`
     font-size: 30px;
@@ -33,5 +33,21 @@ export const Wrapper = styled(FlexCenterDivision)<{ $isSelected: boolean }>`
             background-color: white;
         }
     `}
-
 `;
+
+
+interface props {
+    isSelected:boolean
+    children: string;
+    onClick : () => void
+}
+
+const TopMenuText = ({isSelected, onClick ,children}: props) => {
+    return (
+        <Wrapper $isSelected={isSelected} onClick={onClick}>
+            {children}
+        </Wrapper>
+    );
+};
+
+export default TopMenuText;

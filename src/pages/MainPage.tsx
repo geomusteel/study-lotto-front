@@ -1,7 +1,8 @@
 import React from 'react';
-import TopNavigation from "../components/organisms/TopNavigation"
-import AvailableTimeCounter from "../components/organisms/AvailableTimeCounter"
-import LottoBaseNumberZone from "../components/organisms/LottoBaseNumberZone"
+import TopNavigation from "../components/templates/TopNavigation"
+import AvailableTimeCounter from "../components/templates/AvailableTimeCounter"
+import LottoBaseNumberZone from "../components/templates/LottoBaseNumberZone"
+import MainLottoZone from "../components/templates/MainLottoZone";
 
 const MainPage = () => {
     return (
@@ -9,6 +10,7 @@ const MainPage = () => {
             <TopNavigation/>
             <AvailableTimeCounter/>
             <LottoBaseNumberZone/>
+            <MainLottoZone/>
         </div>
     );
 };

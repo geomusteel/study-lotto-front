@@ -1,12 +1,23 @@
 import random from "random";
 
+interface LottoNumber {
+    number: number,
+    color: string,
+    isOpen: boolean
+}
 
 const _generateBaseLottoNumber = () => {
     return random.int(1, 45);
 }
 
-const _generateSortBaseLottoNumbers = () => {
+const _generateSortBaseLottoNumbers = (lottoNumber?: LottoNumber[]) => {
     const lottoNumbers: Set<number> = new Set();
+
+    if (lottoNumber !== undefined && lottoNumber.length > 1) {
+        for (const item of lottoNumber) {
+            lottoNumbers.add(item.number)
+        }
+    }
 
     while (lottoNumbers.size < 6) {
         lottoNumbers.add(_generateBaseLottoNumber());
@@ -39,8 +50,8 @@ const _colorSetting = (number: number) => {
     }
 }
 
-export const generateSortLottoNumbers = () => {
-    const lottoNumbers: number[] = _generateSortBaseLottoNumbers();
+export const generateSortLottoNumbers = (lottoNumber: LottoNumber[]) => {
+    const lottoNumbers: number[] = _generateSortBaseLottoNumbers(lottoNumber);
     return lottoNumbers.map((item) => {
         return {
             number: item,

@@ -2,7 +2,7 @@ import React from 'react';
 import TopMenuGroup from "../molecules/TopMenuGroup"
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     height: 120px;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {FlexCenterDivision} from "../../../common/div/FlexCenterDivision";
 
-export const Wrapper = styled(FlexCenterDivision)`
+const Wrapper = styled(FlexCenterDivision)`
     width: 524px;
     height: 60px;
     font-size: 40px;

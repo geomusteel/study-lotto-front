@@ -4,8 +4,7 @@ import SmallIndicator from "../atoms/box/SmallIndicator";
 import styled from "styled-components";
 import {FlexCenterDivision} from "../../common/div/FlexCenterDivision"
 
-
-export const Wrapper = styled(FlexCenterDivision)`
+const Wrapper = styled(FlexCenterDivision)`
     flex-direction: column;
     width: 20px;
     height: 60px;

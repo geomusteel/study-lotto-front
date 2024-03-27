@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {FlexCenterDivision} from "../../../common/div/FlexCenterDivision"
 
-export const Wrapper = styled(FlexCenterDivision)<{ $isSelected: boolean }>`
+const Wrapper = styled(FlexCenterDivision)<{ $isSelected: boolean }>`
     font-size: 30px;
     color: ${(props) => (props.$isSelected ? "#ffffff" : "#f5f5f5")};
     width: 140px;

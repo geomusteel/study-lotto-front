@@ -1,11 +1,11 @@
 import React from 'react';
-import LottoNumberRoundItem from "../atoms/box/LottoNumberRoundItem"
+import BaseNumberRoundItem from "../atoms/box/BaseNumberRoundItem"
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {LuckyNumberOpen} from "../../slice/LottoNumberSlice"
+import {luckyNumberOpen} from "../../slice/LottoNumberSlice"
 import styled from "styled-components";
 import {FlexCenterDivision} from "../../common/div/FlexCenterDivision"
 
-export const Wrapper = styled(FlexCenterDivision)`
+const Wrapper = styled(FlexCenterDivision)`
     width: 340px;
     height: 60px;
     gap: 8px;
@@ -18,29 +18,29 @@ interface lotto {
 }
 
 
-const LottoNumbersGroup = () => {
+const BaseLuckyNumberGroup = () => {
 
     const dispatch = useAppDispatch()
     const lottoNumber = useAppSelector(state => state.lottoNumber.luckyNumber);
 
     const handleIsOpenChange = (item: lotto) => {
-        dispatch(LuckyNumberOpen(item))
+        dispatch(luckyNumberOpen(item))
     }
 
     return (
         <Wrapper>
             {lottoNumber.map((item, index) => {
                 return (
-                    <LottoNumberRoundItem key={index}
-                                          color={item.color}
-                                          isOpen={item.isOpen}
-                                          onClick={() => handleIsOpenChange(item)}>
+                    <BaseNumberRoundItem key={index}
+                                         color={item.color}
+                                         isOpen={item.isOpen}
+                                         onClick={() => handleIsOpenChange(item)}>
                         {item.number}
-                    </LottoNumberRoundItem>
+                    </BaseNumberRoundItem>
                 )
             })}
         </Wrapper>
     );
 };
 
-export default LottoNumbersGroup;
+export default BaseLuckyNumberGroup;

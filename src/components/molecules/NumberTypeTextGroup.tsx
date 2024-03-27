@@ -3,7 +3,7 @@ import styled from "styled-components";
 import BaseLottoGenerateTypeTopText from "../atoms/paragraph/BaseLottoGenerateTypeTopText";
 import BaseLottoGenerateTypeBottomText from "../atoms/paragraph/BaseLottoGenerateTypeBottomText";
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;

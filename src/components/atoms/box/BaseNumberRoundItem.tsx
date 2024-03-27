@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {FlexCenterDivision} from "../../../common/div/FlexCenterDivision"
 
-const Wrapper = styled(FlexCenterDivision)<{ $color?: string; $isOpen: boolean }>`
+const Wrapper = styled(FlexCenterDivision)<{ $color: string; $isOpen: boolean }>`
     width: 48px;
     height: 48px;
     border-radius: 24px;
@@ -17,12 +17,16 @@ const Wrapper = styled(FlexCenterDivision)<{ $color?: string; $isOpen: boolean }
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    transition: 0.15s ease;
+    cursor: pointer;
+    transition: 0.1s ease;
+    &:active {
+        transform: scale(1.15);
+    }
 `
 
 interface props {
-    color?: string;
-    children?: number;
+    color: string;
+    children: number;
     isOpen: boolean;
     onClick?: () => void
 }

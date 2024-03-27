@@ -1,27 +1,27 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
-import {generateUnsortedLottoNumbers} from "../utilize/generateLottoNumbers"
+import {generateSortLottoNumbers, generateUnsortedLottoNumbers} from "../utilize/generateLottoNumbers"
+import {Lotto, LottoGroups, LottoState} from "../common/interface"
 
 
-interface LottoNumber {
-    number: number,
-    color: string,
-    isOpen: boolean
-}
+const initialItem: Lotto[] = [
+    {number: 0, color: "#f3f5f6", isOpen: false},
+    {number: 0, color: "#f3f5f6", isOpen: false},
+    {number: 0, color: "#f3f5f6", isOpen: false},
+    {number: 0, color: "#f3f5f6", isOpen: false},
+    {number: 0, color: "#f3f5f6", isOpen: false},
+    {number: 0, color: "#f3f5f6", isOpen: false},
+]
 
-type isLuckyNumberView = 'luckyNumber' | 'manualNumber'
-interface LottoState {
-    luckyNumber: LottoNumber[]
-    manualNumber: LottoNumber[]
-    isLuckyNumberView: isLuckyNumberView
-    lottoNumbers: [LottoNumber[]]
-    currentDraw: number
-}
+const initialGroup: LottoGroups = [
+    initialItem, initialItem, initialItem, initialItem, initialItem
+]
+
 
 const initialState: LottoState = {
     luckyNumber: generateUnsortedLottoNumbers(),
     manualNumber: [],
+    lottoNumbers: initialGroup,
     isLuckyNumberView: 'luckyNumber',
-    lottoNumbers: [[]],
     currentDraw: 1030
 };
 
@@ -32,29 +32,39 @@ export const lottoNumberSlice = createSlice({
         generateLuckyNumber: (state) => {
             state.luckyNumber = generateUnsortedLottoNumbers();
         },
-        LuckyNumberOpen: (state, action: PayloadAction<LottoNumber>) => {
+        luckyNumberOpen: (state, action: PayloadAction<Lotto>) => {
             state.luckyNumber = state.luckyNumber.map((item) => {
                 if (item.number === action.payload.number) {
                     return {...item, isOpen: !item.isOpen}
                 }
                 return item;
             })
+        },
+        setMainLottoNumber: (state, action: PayloadAction<number>) => {
+            const openValue = state.luckyNumber.filter((item) => item.isOpen)
+            state.lottoNumbers[action.payload] = generateSortLottoNumbers(openValue)
+        },
+        setMainLottoNumberAll: (state) => {
+            const openValue = state.luckyNumber.filter((item) => item.isOpen)
+            const newValue: LottoGroups = []
+            for (let i = 0; i < 5; i++) {
+                newValue.push(generateSortLottoNumbers(openValue))
+            }
+            state.lottoNumbers = newValue;
+        },
+        resetMainLottoNumber: (state) => {
+            state.lottoNumbers = initialGroup;
         }
-        // const handleIsOpenChange = (outItem: lotto) => {
-        //     const newValue = lottoNumber.map((item, index) => {
-        //         if (item.number === outItem.number) {
-        //             return {...item, isOpen: !item.isOpen}
-        //         }
-        //         return item;
-        //     })
-        //     setLottoNumber(newValue)
-        // }
+
     }
 })
 
 export const {
     generateLuckyNumber,
-    LuckyNumberOpen
+    luckyNumberOpen,
+    setMainLottoNumber,
+    setMainLottoNumberAll,
+    resetMainLottoNumber
 } = lottoNumberSlice.actions
 
 

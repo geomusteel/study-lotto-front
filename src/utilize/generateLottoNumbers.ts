@@ -6,14 +6,15 @@ interface LottoNumber {
     isOpen: boolean
 }
 
+
 const _generateBaseLottoNumber = () => {
     return random.int(1, 45);
 }
 
-const _generateSortBaseLottoNumbers = (lottoNumber?: LottoNumber[]) => {
+const _generateSortBaseLottoNumbers = (lottoNumber: LottoNumber[]) => {
     const lottoNumbers: Set<number> = new Set();
 
-    if (lottoNumber !== undefined && lottoNumber.length > 1) {
+    if (lottoNumber !== undefined && lottoNumber.length > 0) {
         for (const item of lottoNumber) {
             lottoNumbers.add(item.number)
         }
@@ -56,7 +57,7 @@ export const generateSortLottoNumbers = (lottoNumber: LottoNumber[]) => {
         return {
             number: item,
             color: _colorSetting(item),
-            isOpen: false
+            isOpen: true
         }
     })
 }

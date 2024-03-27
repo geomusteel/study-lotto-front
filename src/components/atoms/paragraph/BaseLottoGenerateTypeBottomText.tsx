@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
     font-size: 16px;
     font-family: "Noto Sans KR", sans-serif;
     font-weight: 500;

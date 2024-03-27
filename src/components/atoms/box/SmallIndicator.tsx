@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 
-export const Wrapper = styled.div<{ $isCheck: boolean }>`
+const Wrapper = styled.div<{ $isCheck: boolean }>`
     height: 20px;
     width: 4px;
     box-sizing: border-box;

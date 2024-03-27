@@ -3,7 +3,7 @@ import TopMenuText from "../atoms/paragraph/TopMenuText"
 import styled from "styled-components";
 import {FlexCenterDivision} from "../../common/div/FlexCenterDivision"
 
-export const Wrapper = styled(FlexCenterDivision)`
+const Wrapper = styled(FlexCenterDivision)`
     width: 580px;
     height: 60px;
     gap: 36px;

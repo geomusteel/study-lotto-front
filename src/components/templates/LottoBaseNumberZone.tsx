@@ -1,5 +1,5 @@
 import React from 'react';
-import LottoNumbersGroup from "../molecules/LottoNumbersGroup"
+import BaseLuckyNumberGroup from "../molecules/BaseLuckyNumberGroup"
 import SmallButton from "../atoms/button/SmallButton"
 import * as S from "./LottoBaseNumberZone.style"
 import {useAppDispatch} from "../../hooks";
@@ -18,7 +18,7 @@ const LottoBaseNumberZone = () => {
             <S.LeftBox>
                 <NumberTypeGroup/>
             </S.LeftBox>
-            <LottoNumbersGroup/>
+            <BaseLuckyNumberGroup/>
             <S.RightBox>
                 <SmallButton onClick={() => handleOnClick()}>RESET</SmallButton>
             </S.RightBox>

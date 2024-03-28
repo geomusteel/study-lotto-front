@@ -23,9 +23,9 @@ const LargeButtonGroup = () => {
 
     return (
         <Wrapper>
-            <LargeButton onClick={() => handleReset()}>초기화</LargeButton>
             <LargeButton>번호저장</LargeButton>
-            <LargeButton onClick={() => handleGenerate()}>전체생성</LargeButton>
+            <LargeButton onClick={() => handleReset()}>초기화</LargeButton>
+            <LargeButton onClick={() => handleGenerate()} color={"#ff6600"}>전체생성</LargeButton>
         </Wrapper>
     );
 };

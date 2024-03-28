@@ -6,6 +6,7 @@ import Shuffle from "../atoms/icon/Shuffle";
 import {LottoGroup} from "../../common/interface"
 import {useDispatch} from "react-redux";
 import {setMainLottoNumber} from "../../slice/LottoNumberSlice"
+import BigNumber from "../atoms/paragraph/BigNumber";
 
 const Wrapper = styled.div`
     display: flex;
@@ -35,11 +36,11 @@ const LottoNumberContainer = ({id, lottoNumber}: Props) => {
 
     return (
         <Wrapper>
-            <div style={{width: "70px", height: "50px"}}></div>
+            <BigNumber>{id+1}</BigNumber>
             <SmallDivider/>
             <LottoNumberGroup lottoNumber={lottoNumber}/>
             <SmallDivider/>
-            <Shuffle onClick={()=>HandleClick(id)}/>
+            <Shuffle onClick={()=>HandleClick(id)} />
         </Wrapper>
     );
 };

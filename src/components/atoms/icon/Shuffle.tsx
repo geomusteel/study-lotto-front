@@ -10,6 +10,7 @@ const Wrapper = styled(FlexCenterDivision)`
     margin-right: 10px;
     transition: 0.1s ease;
     color: #4d4d4d;
+    font-size: 30px;
 
     &:active {
         color: #505050;
@@ -22,11 +23,11 @@ interface Props {
     onClick: () => void
 }
 
-const Shuffle = ({onClick}:Props) => {
+const Shuffle = ({onClick}: Props) => {
 
     return (
         <Wrapper>
-            <FaShuffle onClick={onClick} cursor={"pointer"} size={"30px"} />
+            <FaShuffle onClick={onClick} cursor={"pointer"}/>
         </Wrapper>
     );
 };

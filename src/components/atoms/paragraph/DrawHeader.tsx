@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
 import {FlexCenterDivision} from "../../../common/div/FlexCenterDivision";
 
@@ -11,9 +11,26 @@ const Wrapper = styled(FlexCenterDivision)`
 `
 
 const DrawHeader = () => {
+
+    const [currentLottoDraw, setCurrentLottoDraw] = useState<number>(0);
+
+    useEffect(() => {
+        const calculateLottoDraw = () => {
+            const startDate = new Date(2002, 11, 7);
+            const currentDate = new Date();
+            const differenceInTime = currentDate.getTime() - startDate.getTime();
+            const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24));
+            const currentDraw = Math.floor(differenceInDays / 7) + 1;
+            setCurrentLottoDraw(currentDraw+1);
+        };
+
+        calculateLottoDraw();
+    }, []);
+
+
     return (
         <Wrapper >
-            2024 회차
+            {currentLottoDraw} 회차
         </Wrapper>
     );
 };

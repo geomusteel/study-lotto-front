@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from "styled-components";
 import {FlexCenterDivision} from "../../common/div/FlexCenterDivision";
 import NumberGenerator from "../atoms/icon/main-navigation/NumberGenerator";
 import NumberSave from "../atoms/icon/main-navigation/NumberSave";
 import WinningReviews from "../atoms/icon/main-navigation/WinningReviews";
 import MyPage from "../atoms/icon/main-navigation/MyPage";
+import {useLocation} from "react-router-dom";
 
 
 const Wrapper = styled(FlexCenterDivision)`
@@ -18,18 +19,15 @@ const Wrapper = styled(FlexCenterDivision)`
 
 const MainNavigation = () => {
 
-    const [isActiveNumber, setIsActiveNumber] = useState<number>(1);
+    const location = useLocation();
 
-    const handleOnclick = (selectNumber: number) => {
-        setIsActiveNumber(selectNumber)
-    }
 
     return (
         <Wrapper>
-            <NumberGenerator isActive={1 === isActiveNumber} onClick={() => handleOnclick(1)}/>
-            <NumberSave isActive={2 === isActiveNumber} onClick={() => handleOnclick(2)}/>
-            <WinningReviews isActive={3 === isActiveNumber} onClick={() => handleOnclick(3)}/>
-            <MyPage isActive={4 === isActiveNumber} onClick={() => handleOnclick(4)}/>
+            <NumberGenerator isActive={location.pathname === "/"}/>
+            <NumberSave isActive={location.pathname === "/sub1"}/>
+            <WinningReviews isActive={location.pathname === "/sub2"}/>
+            <MyPage isActive={location.pathname === "/sub3"}/>
         </Wrapper>
     );
 };

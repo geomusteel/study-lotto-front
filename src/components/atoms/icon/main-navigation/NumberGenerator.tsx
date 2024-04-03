@@ -1,15 +1,23 @@
 import React from 'react';
 import styled from "styled-components";
-import {FlexCenterDivision} from "../../../../common/div/FlexCenterDivision";
 import {PiNumberCircleSeven, PiNumberCircleSevenFill} from "react-icons/pi";
+import {NavLink} from "react-router-dom";
 
-const Wrapper = styled(FlexCenterDivision)<{ $isActive: boolean }>`
+const Wrapper = styled(NavLink)<{ $isActive: boolean }>`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     width: 100px;
     height: 100px;
     color: ${(props) => props.$isActive ? "#ff6600" : "#4d4d4d"};
     font-size: 40px;
     gap: 8px;
+    
+    &:link {
+        transition : 0.1s;
+        text-decoration: none;
+    }
 
     & p {
         font-family: "Noto Sans KR", sans-serif;
@@ -20,12 +28,11 @@ const Wrapper = styled(FlexCenterDivision)<{ $isActive: boolean }>`
 
 interface Props {
     isActive: boolean
-    onClick: () => void
 }
 
-const NumberGenerator = ({isActive, onClick}: Props) => {
+const NumberGenerator = ({isActive}: Props) => {
     return (
-        <Wrapper $isActive={isActive} onClick={onClick}>
+        <Wrapper to="/" $isActive={isActive} >
             {isActive ? <PiNumberCircleSevenFill/> : <PiNumberCircleSeven/>}
             <p>번호생성</p>
         </Wrapper>

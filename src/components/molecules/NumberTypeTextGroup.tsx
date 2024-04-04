@@ -17,11 +17,17 @@ const Wrapper = styled.div`
     cursor: pointer;
 `
 
-const NumberTypeTextGroup = () => {
+interface Props {
+    mainString: string,
+    subString: string
+    onClick: () => void
+}
+
+const NumberTypeTextGroup = ({mainString, subString, onClick}: Props) => {
     return (
-        <Wrapper>
-            <BaseLottoGenerateTypeTopText>LUCKY</BaseLottoGenerateTypeTopText>
-            <BaseLottoGenerateTypeBottomText>NUMBER</BaseLottoGenerateTypeBottomText>
+        <Wrapper onClick={onClick}>
+            <BaseLottoGenerateTypeTopText>{mainString}</BaseLottoGenerateTypeTopText>
+            <BaseLottoGenerateTypeBottomText>{subString}</BaseLottoGenerateTypeBottomText>
         </Wrapper>
     );
 };

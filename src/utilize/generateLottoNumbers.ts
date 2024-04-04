@@ -37,7 +37,7 @@ const _generateUnsortedBaseLottoNumbers = () => {
     return Array.from(lottoNumbers);
 }
 
-const _colorSetting = (number: number) => {
+export const colorSetting = (number: number) => {
     if (number <= 10) {
         return "#f2b526";
     } else if (number <= 20) {
@@ -56,7 +56,7 @@ export const generateSortLottoNumbers = (lottoNumber: LottoNumber[]) => {
     return lottoNumbers.map((item) => {
         return {
             number: item,
-            color: _colorSetting(item),
+            color: colorSetting(item),
             isOpen: true
         }
     })
@@ -67,7 +67,7 @@ export const generateUnsortedLottoNumbers = () => {
     return lottoNumbers.map((item) => {
         return {
             number: item,
-            color: _colorSetting(item),
+            color: colorSetting(item),
             isOpen: false
         }
     })

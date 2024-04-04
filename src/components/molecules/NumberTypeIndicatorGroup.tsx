@@ -1,5 +1,4 @@
 import React from 'react';
-import {useAppSelector} from "../../hooks"
 import SmallIndicator from "../atoms/box/SmallIndicator";
 import styled from "styled-components";
 import {FlexCenterDivision} from "../../common/div/FlexCenterDivision"
@@ -15,13 +14,18 @@ const Wrapper = styled(FlexCenterDivision)`
     user-select: none;
 `
 
-const NumberTypeIndicatorGroup = () => {
+interface Props {
+    isLuckyNumber: boolean
+    onClick: () => void
+}
 
-    const isLuckyNumberView = useAppSelector(state => state.lottoNumber.isLuckyNumberView);
+const NumberTypeIndicatorGroup = ({isLuckyNumber, onClick}: Props) => {
+
+
     return (
-        <Wrapper>
-            <SmallIndicator isCheck={'luckyNumber' === isLuckyNumberView}/>
-            <SmallIndicator isCheck={'manualNumber' === isLuckyNumberView}/>
+        <Wrapper onClick={onClick}>
+            <SmallIndicator isCheck={isLuckyNumber}/>
+            <SmallIndicator isCheck={!isLuckyNumber}/>
         </Wrapper>
     );
 };

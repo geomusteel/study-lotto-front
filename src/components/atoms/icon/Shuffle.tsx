@@ -11,6 +11,11 @@ const Wrapper = styled(FlexCenterDivision)`
     transition: 0.1s ease;
     color: #4d4d4d;
     font-size: 30px;
+    
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     &:active {
         color: #505050;

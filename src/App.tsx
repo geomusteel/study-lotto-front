@@ -11,7 +11,9 @@ import SubPageThree from "./pages/SubPageThree";
 
 export const Wrapper = styled(FlexCenterDivision)`
     width: 100vw;
+    min-width: 560px;
     height: 100vh;
+    min-height: 1008px;
     flex-direction: column;
     background-color: #e5e8eb;
 `

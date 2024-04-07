@@ -2,7 +2,7 @@ import React from 'react';
 import SmallButton from "../atoms/button/SmallButton"
 import {useAppDispatch} from "../../hooks";
 import {resetBaseNumber} from "../../slice/LottoNumberSlice"
-import NumberTypeGroup from "../organisms/NumberTypeGroup"
+import NumberTypeContainer from "../organisms/NumberTypeContainer"
 
 import styled from "styled-components";
 import {FlexCenterDivision} from "../../common/div/FlexCenterDivision"
@@ -33,7 +33,7 @@ const LottoBaseNumberZone = () => {
 
     return (
         <Wrapper>
-            <NumberTypeGroup/>
+            <NumberTypeContainer/>
             <RightBox>
                 <SmallButton onClick={() => handleOnClick()}>RESET</SmallButton>
             </RightBox>

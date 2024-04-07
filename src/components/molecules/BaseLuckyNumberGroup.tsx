@@ -4,6 +4,7 @@ import {useAppDispatch, useAppSelector} from "../../hooks";
 import {luckyNumberOpen} from "../../slice/LottoNumberSlice"
 import styled from "styled-components";
 import {FlexCenterDivision} from "../../common/div/FlexCenterDivision"
+import {Lotto} from "../../common/interface";
 
 const Wrapper = styled(FlexCenterDivision)`
     width: 340px;
@@ -11,19 +12,12 @@ const Wrapper = styled(FlexCenterDivision)`
     gap: 8px;
 `
 
-interface lotto {
-    number: number,
-    color: string,
-    isOpen: boolean
-}
-
-
 const BaseLuckyNumberGroup = () => {
 
     const dispatch = useAppDispatch()
     const lottoNumber = useAppSelector(state => state.lottoNumber.luckyNumber);
 
-    const handleIsOpenChange = (item: lotto) => {
+    const handleIsOpenChange = (item: Lotto) => {
         dispatch(luckyNumberOpen(item))
     }
 

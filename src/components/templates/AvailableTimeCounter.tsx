@@ -3,14 +3,7 @@ import styled from "styled-components";
 import {FlexCenterDivision} from "../../common/div/FlexCenterDivision"
 import CounterSquareBox from "../atoms/box/CounterSquareBox";
 import Colon from "../atoms/box/Colon";
-
-
-interface TimeParts {
-    days: string;
-    hours: string[];
-    minutes: string[];
-    seconds: string[];
-}
+import {TimeParts} from "../../common/interface";
 
 const initialData: TimeParts = {
     days: "0",
@@ -35,8 +28,10 @@ const AvailableTimeCounter = () => {
     useEffect(() => {
         const updateRemainingTime = () => {
             const now = new Date();
-            const weekStart = new Date(now); // 이번 주의 시작
-            const weekEnd = new Date(now); // 이번 주의 끝
+            // 이번 주의 시작
+            const weekStart = new Date(now);
+            // 이번 주의 끝
+            const weekEnd = new Date(now);
 
             // 이번 주 일요일 오전 6시로 설정
             weekStart.setDate(now.getDate() - now.getDay());

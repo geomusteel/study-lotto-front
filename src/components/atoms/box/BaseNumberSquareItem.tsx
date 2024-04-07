@@ -45,7 +45,7 @@ const InputBox = styled.input<{ $color: string; }>`
     }
 `
 
-interface props {
+interface Props {
     color: string;
     isOpen: boolean;
     number: number;
@@ -54,7 +54,7 @@ interface props {
     onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void
 }
 
-const BaseNumberSquareItem = ({isOpen, color, number, onChange, onBlur, onKeyDown}: props) => {
+const BaseNumberSquareItem = ({isOpen, color, number, onChange, onBlur, onKeyDown}: Props) => {
 
     return (
         <Wrapper $color={color} $isOpen={isOpen}>

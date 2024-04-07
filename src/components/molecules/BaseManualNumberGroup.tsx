@@ -17,6 +17,9 @@ const BaseLuckyNumberGroup = () => {
     const lottoNumber = useAppSelector(state => state.lottoNumber.manualNumber);
 
 
+    /**
+     * 중복값이 있을경우 초기화
+     */
     const validate = (index: number, newNumber: number) => {
         const isDuplicate = lottoNumber.some((item, itemIndex) => item.number === newNumber && itemIndex !== index);
 
@@ -25,6 +28,11 @@ const BaseLuckyNumberGroup = () => {
         }
     };
 
+
+    /**
+     * input 변경사항을 반영 <br>
+     * 중복값 체크는 하지 않음
+     */
     const handleIsManualNumber = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
         const value = e.target.value;
         const newNumber = Number(value);
@@ -36,11 +44,19 @@ const BaseLuckyNumberGroup = () => {
         }
     };
 
+    /**
+     * input 에서 focus out 됐을때 <br>
+     * 중복값 있을경우 제거
+     */
     const handleBlur = (e: React.FocusEvent<HTMLInputElement>, index: number) => {
         const newNumber = Number(e.target.value);
         validate(index, newNumber);
     };
 
+    /**
+     * input 에서 Enter 됐을때 <br>
+     * 중복값 있을경우 제거
+     */
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
         if (e.key === 'Enter') {
             e.currentTarget.blur();

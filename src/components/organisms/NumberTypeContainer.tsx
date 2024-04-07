@@ -34,7 +34,7 @@ const SubWrapper = styled.div`
 `
 
 
-const NumberTypeGroup = () => {
+const NumberTypeContainer = () => {
 
     const isLuckyNumber = useAppSelector(state => state.lottoNumber.isLuckyNumber);
     const dispatch = useDispatch();
@@ -65,4 +65,4 @@ const NumberTypeGroup = () => {
     );
 };
 
-export default NumberTypeGroup;
+export default NumberTypeContainer;

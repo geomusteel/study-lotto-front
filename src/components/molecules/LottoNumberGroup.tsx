@@ -1,19 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import LottoNumberRoundItem from "../atoms/box/LottoNumberRoundItem";
 import styled from "styled-components";
 import {FlexCenterDivision} from "../../common/div/FlexCenterDivision";
+import {Lotto} from "../../common/interface";
 
 const Wrapper = styled(FlexCenterDivision)`
     width: 340px;
     height: 60px;
     gap: 8px;
 `
-
-interface Lotto {
-    number: number,
-    color: string,
-    isOpen: boolean
-}
 
 interface Props {
     lottoNumber: Lotto[]

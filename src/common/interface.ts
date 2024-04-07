@@ -14,3 +14,10 @@ export interface LottoState {
     isLuckyNumber: boolean
     currentDraw: number
 }
+
+export interface TimeParts {
+    days: string;
+    hours: string[];
+    minutes: string[];
+    seconds: string[];
+}

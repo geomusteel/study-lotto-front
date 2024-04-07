@@ -24,14 +24,14 @@ const Wrapper = styled(FlexCenterDivision)<{ $color: string; $isOpen: boolean }>
     }
 `
 
-interface props {
+interface Props {
     color: string;
     children: number;
     isOpen: boolean;
     onClick?: () => void
 }
 
-const BaseNumberRoundItem = ({isOpen, color, onClick, children}: props) => {
+const BaseNumberRoundItem = ({isOpen, color, onClick, children}: Props) => {
     return (
         <Wrapper $color={color} $isOpen={isOpen} onClick={onClick}>
             {isOpen && children}

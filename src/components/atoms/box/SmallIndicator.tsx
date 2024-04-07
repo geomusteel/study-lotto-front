@@ -11,12 +11,12 @@ const Wrapper = styled.div<{ $isCheck: boolean }>`
     cursor: pointer;
 `
 
-interface props {
+interface Props {
     isCheck: boolean
 }
 
 
-const SmallIndicator = ({isCheck}: props) => {
+const SmallIndicator = ({isCheck}: Props) => {
     return (
         <Wrapper $isCheck={isCheck}/>
     );

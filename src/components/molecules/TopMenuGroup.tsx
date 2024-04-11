@@ -1,7 +1,10 @@
-import React, { useState} from 'react';
-import TopMenuText from "../atoms/paragraph/TopMenuText"
+import React from 'react';
 import styled from "styled-components";
 import {FlexCenterDivision} from "../../common/div/FlexCenterDivision"
+import {useLocation} from "react-router-dom";
+import TopMenuCreate from "../atoms/paragraph/main-top-menu/TopMenuCreate";
+import TopMenuDraw from "../atoms/paragraph/main-top-menu/TopMenuDraw";
+import TopMenuStatistics from "../atoms/paragraph/main-top-menu/TopMenuStatistics";
 
 const Wrapper = styled(FlexCenterDivision)`
     width: 580px;
@@ -11,17 +14,13 @@ const Wrapper = styled(FlexCenterDivision)`
 
 const TopMenuGroup = () => {
 
-    const [stageNumber, setStageNumber] = useState<number>(1);
-
-    const handleStageChange = (state: number) => {
-        setStageNumber(state)
-    }
+    const location = useLocation();
 
     return (
         <Wrapper>
-            <TopMenuText isSelected={1 === stageNumber} onClick={() => handleStageChange(1)}>번호생성</TopMenuText>
-            <TopMenuText isSelected={2 === stageNumber} onClick={() => handleStageChange(2)}>회차검색</TopMenuText>
-            <TopMenuText isSelected={3 === stageNumber} onClick={() => handleStageChange(3)}>번호통계</TopMenuText>
+            <TopMenuCreate isActive={location.pathname === "/"}>번호생성</TopMenuCreate>
+            <TopMenuDraw isActive={location.pathname === "/main/2"}>회차검색</TopMenuDraw>
+            <TopMenuStatistics isActive={location.pathname === "/main/3"}>번호통계</TopMenuStatistics>
         </Wrapper>
     );
 };

@@ -8,6 +8,9 @@ import MainNavigation from "./components/templates/MainNavigation";
 import SubPageOne from "./pages/SubPageOne";
 import SubPageTwo from './pages/SubPageTwo';
 import SubPageThree from "./pages/SubPageThree";
+import TempArea from "./components/templates/TempArea";
+import NumberCreate from "./pages/sub/NumberCreate";
+import NumberStatistics from "./pages/sub/NumberStatistics";
 
 export const Wrapper = styled(FlexCenterDivision)`
     width: 100vw;
@@ -25,14 +28,17 @@ const App = () => {
             <Reset/>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<MainPage/>}/>
+                    <Route path="/" element={<MainPage/>}>
+                        <Route path="/" element={<NumberCreate/>}/>
+                        <Route path="main/2" element={<TempArea/>}/>
+                        <Route path="main/3" element={<NumberStatistics/>}/>
+                    </Route>
                     <Route path="sub1" element={<SubPageOne/>}/>
                     <Route path="sub2" element={<SubPageTwo/>}/>
                     <Route path="sub3" element={<SubPageThree/>}/>
                 </Routes>
                 <MainNavigation/>
             </BrowserRouter>
-
         </Wrapper>
     );
 }

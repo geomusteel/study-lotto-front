@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import {PiNumberCircleSeven, PiNumberCircleSevenFill} from "react-icons/pi";
-import {NavLink} from "react-router-dom";
+import {NavLink, useLocation} from "react-router-dom";
 
 const Wrapper = styled(NavLink)<{ $isActive: boolean }>`
     display: flex;
@@ -13,9 +13,9 @@ const Wrapper = styled(NavLink)<{ $isActive: boolean }>`
     color: ${(props) => props.$isActive ? "#ff6600" : "#4d4d4d"};
     font-size: 40px;
     gap: 8px;
-    
+
     &:link {
-        transition : 0.1s;
+        transition: 0.1s;
         text-decoration: none;
     }
 
@@ -31,9 +31,12 @@ interface Props {
 }
 
 const NumberGenerator = ({isActive}: Props) => {
+
+    const location = useLocation().pathname.startsWith('/main');
+
     return (
-        <Wrapper to="/" $isActive={isActive} >
-            {isActive ? <PiNumberCircleSevenFill/> : <PiNumberCircleSeven/>}
+        <Wrapper to="/" $isActive={isActive || location}>
+            {isActive || location ? <PiNumberCircleSevenFill/> : <PiNumberCircleSeven/>}
             <p>번호생성</p>
         </Wrapper>
     );

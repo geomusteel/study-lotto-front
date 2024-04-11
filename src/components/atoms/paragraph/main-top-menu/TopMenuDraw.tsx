@@ -1,8 +1,11 @@
 import React from 'react';
 import styled from "styled-components";
-import {FlexCenterDivision} from "../../../common/div/FlexCenterDivision"
+import {NavLink} from "react-router-dom";
 
-const Wrapper = styled(FlexCenterDivision)<{ $isActive: boolean }>`
+const Wrapper = styled(NavLink)<{ $isActive: boolean }>`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 30px;
     color: ${(props) => (props.$isActive ? "#ffffff" : "#f5f5f5")};
     width: 140px;
@@ -15,6 +18,11 @@ const Wrapper = styled(FlexCenterDivision)<{ $isActive: boolean }>`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    &:link {
+        transition: 0.1s;
+        text-decoration: none;
+    }
 
     &:hover {
         color: ${(props) => (props.$isActive ? "#f5f5f5" : "#f0f0f0")};
@@ -41,12 +49,12 @@ interface props {
     children: string;
 }
 
-const TopMenuText = ({isActive, children}: props) => {
+const TopMenuCreate = ({isActive, children}: props) => {
     return (
-        <Wrapper $isActive={isActive}>
+        <Wrapper to={"/main/2"} $isActive={isActive}>
             {children}
         </Wrapper>
     );
 };
 
-export default TopMenuText;
+export default TopMenuCreate;

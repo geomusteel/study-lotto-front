@@ -1,16 +1,12 @@
 import React from 'react';
 import TopNavigation from "../components/templates/TopNavigation"
-import AvailableTimeCounter from "../components/templates/AvailableTimeCounter"
-import LottoBaseNumberZone from "../components/templates/LottoBaseNumberZone"
-import MainLottoZone from "../components/templates/MainLottoZone";
+import {Outlet} from "react-router-dom";
 
 const MainPage = () => {
     return (
         <div>
             <TopNavigation/>
-            <AvailableTimeCounter/>
-            <LottoBaseNumberZone/>
-            <MainLottoZone/>
+            <Outlet/>
         </div>
     );
 };

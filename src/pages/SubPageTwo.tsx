@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FlexCenterDivision } from '../common/div/FlexCenterDivision';
 
-const Wrapper = styled(FlexCenterDivision)`
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 580px;
   height: 908px;
   background-color: #ffffff;

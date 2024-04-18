@@ -2,17 +2,19 @@ import React from 'react';
 import { Reset } from 'styled-reset';
 import MainPage from './pages/Main/MainPage';
 import styled from 'styled-components';
-import { FlexCenterDivision } from './common/div/FlexCenterDivision';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MainNavigation from './components/nav/MainNavigation';
 import SubPageOne from './pages/SubPageOne';
 import SubPageTwo from './pages/SubPageTwo';
 import SubPageThree from './pages/SubPageThree';
 import TempArea from './components/TempArea';
-import NumberCreate from './pages/Main/sub/NumberCreate';
-import NumberStatistics from './pages/Main/sub/NumberStatistics';
+import NumberCreate from './pages/Main/NumberCreate';
+import NumberStatistics from './pages/Main/NumberStatistics';
 
-export const Wrapper = styled(FlexCenterDivision)`
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   min-width: 560px;
   height: 100vh;

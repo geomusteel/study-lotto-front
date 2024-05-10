@@ -2,24 +2,8 @@ import React, { useEffect, useState } from 'react';
 import * as S from './StatisticsBody.style';
 import ReactECharts from 'echarts-for-react';
 import * as echarts from 'echarts/core';
-import {
-  GridComponent,
-  TitleComponent,
-  TooltipComponent,
-} from 'echarts/components';
-import { BarChart } from 'echarts/charts';
-import { CanvasRenderer } from 'echarts/renderers';
 import axios from 'axios';
 import { findMinMax } from '../../../utilize/findMinMax';
-
-// 필요한 ECharts 컴포넌트 등록
-echarts.use([
-  TitleComponent,
-  TooltipComponent,
-  GridComponent,
-  BarChart,
-  CanvasRenderer,
-]);
 
 interface BarChartParams {
   dataIndex: number; // 데이터 인덱스
@@ -38,17 +22,19 @@ interface MaxData {
 const StatisticsBody = () => {
   const [statisticData, setStatisticData] = useState<[string, number][]>([]);
   const [statisticRange, setStatisticRange] = useState<number[]>([]);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isAscending, setIsAscending] = useState(true);
-  const [tempBoolean] = useState(false);
+
   const [minData, setMinData] = useState<MinData>({ min: ['0', 0] });
   const [maxData, setMaxData] = useState<MaxData>({ max: ['0', 0] });
 
+  const [isSelect, setIsSelect] = useState(true);
+
+  const handleOnclick = () => {
+    setIsSelect(!isSelect);
+  };
   const handleAscending = () => {
     setIsAscending((prevState) => !prevState);
   };
-
-  useEffect(() => {}, []);
 
   useEffect(() => {
     axios
@@ -178,7 +164,15 @@ const StatisticsBody = () => {
 
   return (
     <S.Layout>
-      {tempBoolean ? (
+      <S.Container>
+        <S.BoxSelect onClick={() => handleOnclick()} $isSelect={isSelect}>
+          번호별 당첨 통계
+        </S.BoxSelect>
+        <S.BoxSelect onClick={() => handleOnclick()} $isSelect={!isSelect}>
+          구간별 당첨 통계
+        </S.BoxSelect>
+      </S.Container>
+      {isSelect ? (
         <>
           <S.Container>
             <S.BoxMinMax>{`최다번호 : ${maxData.max[0]} (${maxData.max[1]}회)`}</S.BoxMinMax>
@@ -188,6 +182,7 @@ const StatisticsBody = () => {
             </S.Button>
           </S.Container>
           <ReactECharts
+            key={isSelect ? 'bar-chart' : 'pie-chart'}
             option={option1}
             style={{
               display: 'flex',
@@ -205,14 +200,15 @@ const StatisticsBody = () => {
             <S.Button>당첨순</S.Button>
           </S.Container>
           <ReactECharts
+            key={isSelect ? 'bar-chart' : 'pie-chart'}
             option={option2}
             style={{
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              minHeight: '600px',
-              width: '550px',
-              marginTop: '20px',
+              minHeight: '460px',
+              width: '460px',
+              marginTop: '12px',
             }}
           />
         </>

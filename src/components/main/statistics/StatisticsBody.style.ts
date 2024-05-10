@@ -6,7 +6,7 @@ export const Layout = styled.div`
     align-items: center;
     flex-direction: column;
     margin-top: 10px;
-    height: 690px;
+    height: 600px;
     width: 580px;
     background-color: #ffffff;
     overflow-y: scroll;
@@ -91,4 +91,23 @@ export const BoxMinMax = styled.div`
 
   color: #4d4d4d;
   background-color: #f3f5f6;
+`;
+
+export const BoxSelect = styled.div<{ $isSelect: boolean }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  height: 50px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  font-size: 24px;
+  font-family: 'TheJamsil3Regular', serif;
+  color: ${(props) => (props.$isSelect ? '#ff6600' : '#4d4d4d')};
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
 `;

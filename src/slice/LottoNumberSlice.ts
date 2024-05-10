@@ -5,6 +5,7 @@ import {
   generateUnsortedLottoNumbers,
 } from '../utilize/generateLottoNumbers';
 import { Lotto, LottoGroups, LottoState } from '../common/interface';
+import { findLottoRound } from '../utilize/findLottoRound';
 
 const initialItem: Lotto[] = [
   { number: 0, color: '#f3f5f6', isOpen: false },
@@ -28,7 +29,7 @@ const initialState: LottoState = {
   manualNumber: initialItem,
   lottoNumbers: initialGroup,
   isLuckyNumber: true,
-  currentDraw: 1030,
+  currentDraw: findLottoRound(),
 };
 
 export const lottoNumberSlice = createSlice({

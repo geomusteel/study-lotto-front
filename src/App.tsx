@@ -7,9 +7,9 @@ import MainNavigation from './components/nav/MainNavigation';
 import SubPageOne from './pages/SubPageOne';
 import SubPageTwo from './pages/SubPageTwo';
 import SubPageThree from './pages/SubPageThree';
-import TempArea from './components/TempArea';
 import NumberCreate from './pages/Main/NumberCreate';
 import NumberStatistics from './pages/Main/NumberStatistics';
+import RoundSearch from './pages/Main/RoundSearch';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -31,7 +31,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<MainPage />}>
             <Route path="/" element={<NumberCreate />} />
-            <Route path="main/2" element={<TempArea />} />
+            <Route path="main/2" element={<RoundSearch />} />
             <Route path="main/3" element={<NumberStatistics />} />
           </Route>
           <Route path="sub1" element={<SubPageOne />} />
